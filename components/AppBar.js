@@ -105,9 +105,9 @@ export default function MenuAppBar() {
             <Toolbar className={classes.toolbar}>
 
                 <Link href="/" passHref>
-                    <MuiLink color="inherit" className={classes.menuItem} href="/">
-                        <HomeIcon className={classes.homeIcon} />
-                    </MuiLink>
+                    <IconButton color="inherit" className={classes.iconButton} href="/" title="#">
+                        <HomeIcon />
+                    </IconButton>
                 </Link>
 
                 <IconButton color="inherit" className={classes.iconButton} href="#" target="_blank" rel="noopener" title="#">
