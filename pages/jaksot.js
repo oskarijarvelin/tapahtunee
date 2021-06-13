@@ -4,17 +4,16 @@ import Layout from '../components/Layout';
 import Breadcrumbs from '../components/Breadcrumbs';
 import Link from '../components/Link';
 import { getAllPosts } from '../lib/api'
-import { Container, Typography, Box, LinearProgress, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core';
+import { Container, Typography, Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
-  image: {
-    backgroundColor: 'rgba(0,0,0,.05)',
-    boxShadow: '0 1px 4px 1px rgba(0,0,0,.15)',
-    display: 'flex',
+  cell: {
+    fontSize: 18,
   },
-  ops: {
-    fontSize: 16,
+  hcell: {
+    fontSize: 18,
+    fontWeight: '700',
   },
   thead: {
     backgroundColor: '#E0E0E0',
@@ -26,25 +25,7 @@ const useStyles = makeStyles((theme) => ({
   td: {
     borderTop: '1px solid',
   },
-  summary: {
-    borderTop: '2px solid',
-  }
 }));
-
-function LinearProgressWithLabel(props) {
-  return (
-    <Box display="flex" alignItems="center" pt={2}>
-      <Box width="100%" mr={1}>
-        <LinearProgress variant="determinate" {...props} />
-      </Box>
-      <Box minWidth={35}>
-        <Typography color="textSecondary">
-          {`${Math.round(props.value)}%`}
-        </Typography>
-      </Box>
-    </Box>
-  );
-}
 
 function createData(id, nimi, aika, type) {
   return { id, nimi, aika, type};
@@ -78,7 +59,7 @@ export default function Jaksot({ jaksot }) {
         </Box>
 
         <Box pb={2}>
-          <Typography>
+          <Typography variant="body2">
             Pilottijakso julkaistaan perjantaina 3.9.2021. Uusi jakso ilmestyy 10.9.2021 lähtien kahden viikon välein perjantaisin aina jouluun asti.
           </Typography>
         </Box>
@@ -88,13 +69,13 @@ export default function Jaksot({ jaksot }) {
             <Table className={classes.table} size="small" aria-label="Jaksojen julkaisuaikataulu">
               <TableHead className={classes.thead}>
                 <TableRow>
-                  <TableCell>
+                  <TableCell className={classes.hcell}>
                     #
                   </TableCell>
-                  <TableCell>
+                  <TableCell className={classes.hcell}>
                     Jakson nimi
                   </TableCell>
-                  <TableCell align="right">
+                  <TableCell className={classes.hcell} align="right">
                     Julkaisupäivä
                   </TableCell>
                 </TableRow>
@@ -104,17 +85,17 @@ export default function Jaksot({ jaksot }) {
                 {jaksot.map((jakso, i) => (
                   <TableRow key={i} className={classes.td}>
                     {jakso.id !== '' &&
-                      <TableCell component="td" scope="row">
+                      <TableCell component="td" className={classes.cell} scope="row">
                         {jakso.id}
                       </TableCell>
                     }
                     
-                    <TableCell component="td">
+                    <TableCell component="td" className={classes.cell}>
                       <Link href={`/jaksot/` + jakso.slug}>
                         {jakso.nimi}
                       </Link>  
                     </TableCell>
-                    <TableCell component="td" align="right">
+                    <TableCell component="td" className={classes.cell} align="right">
                       <Moment format="DD.MM.YYYY">{jakso.julkaisuaika}</Moment>
                     </TableCell>
                   </TableRow>

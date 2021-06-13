@@ -1,18 +1,23 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import { makeStyles } from '@material-ui/core/styles';
-import { AppBar, Toolbar, IconButton, Link as MuiLink, Fab } from '@material-ui/core';
+import { AppBar, Toolbar, Link as MuiLink, Fab } from '@material-ui/core';
 import Link from 'next/link';
 
 import HomeIcon from '@material-ui/icons/Home';
 import ListIcon from '@material-ui/icons/List';
-import YoutubeIcon from '@material-ui/icons/YouTube';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 
 const useStyles = makeStyles((theme) => ({
-
-    mainMenu: {
-        display: 'flex',
+    appbar: {
+        top: 'auto',
+        bottom: 0,
+    },
+    toolbar: {
+        margin: '0 auto',
+        maxWidth: 640,
+        padding: 0,
+        width: '100%',
     },
     menuItem: {
         alignItems: 'center',
@@ -44,35 +49,6 @@ const useStyles = makeStyles((theme) => ({
     menuItemIcon: {
         marginRight: theme.spacing(1),
     },
-    iconButton: {
-        borderRadius: '50%',
-        margin: 6,
-        padding: 14,
-        '&:hover': {
-            backgroundColor: 'rgba(255,255,255,.12)',
-            textDecoration: 'none'
-        }
-    },
-    homeIcon: {
-        margin: '2px 0',
-    },
-    menuIcon: {
-        marginLeft: theme.spacing(2),
-        '&:hover': {
-            backgroundColor: 'rgba(255,255,255,.12)',
-            textDecoration: 'none'
-        }
-    },
-    appBar: {
-        top: 'auto',
-        bottom: 0,
-    },
-    toolbar: {
-        margin: '0 auto',
-        maxWidth: 640,
-        padding: 0,
-        width: '100%',
-    },
     grow: {
         flexGrow: 1,
     },
@@ -91,46 +67,29 @@ export default function MenuAppBar() {
     const classes = useStyles();
     const router = useRouter();
 
-    const nav = {
-        "navItems": [{
-            "id": 0,
-            "url": "/jaksot",
-            "title": "Jaksot",
-            "icon": ListIcon
-        }]
-    };
-
     return (
-        <AppBar position="fixed" color="primary" className={classes.appBar}>
+        <AppBar position="fixed" color="primary" className={classes.appbar}>
             <Toolbar className={classes.toolbar}>
 
                 <Link href="/" passHref>
-                    <IconButton color="inherit" className={classes.iconButton} href="/" title="#">
-                        <HomeIcon />
-                    </IconButton>
+                    <MuiLink color="inherit" className={(router.pathname === "/" ? classes.currentMenuItem : classes.menuItem)} href="/">
+                        <HomeIcon className={classes.menuItemIcon} />
+                        Etusivu
+                    </MuiLink>
                 </Link>
 
-                <IconButton color="inherit" className={classes.iconButton} href="#" target="_blank" rel="noopener" title="#">
-                    <YoutubeIcon />
-                </IconButton>
-
-                <Fab color="secondary" aria-label="Kuuntele" className={classes.fabButton} >
+                <Fab color="secondary" aria-label="Kuuntele" className={classes.fabButton} title="Kuuntele Tapahtunee-podcastia">
                     <PlayArrowIcon fontSize="large" />
                 </Fab>
 
                 <div className={classes.grow} />
 
-                {nav.navItems.map((navItem) => { 
-                    const Icon = navItem.icon;
-                    return (
-                        <Link key={navItem.id} href={navItem.url} passHref>
-                            <MuiLink color="inherit" className={(router.pathname === navItem.url ? classes.currentMenuItem : classes.menuItem)} href={navItem.url}>
-                                <Icon className={classes.menuItemIcon} />
-                                {navItem.title}
-                            </MuiLink>
-                        </Link>
-                    )
-                })}
+                <Link href="/jaksot" passHref>
+                    <MuiLink color="inherit" className={(router.pathname === "/jaksot" ? classes.currentMenuItem : classes.menuItem)} href="/jaksot">
+                        <ListIcon className={classes.menuItemIcon} />
+                        Jaksot
+                    </MuiLink>
+                </Link>
 
             </Toolbar>
         </AppBar>
