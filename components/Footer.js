@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Footer() {
   const classes = useStyles();
   return (
-    <Box pt={{xs:8, md:16}} pb={4}>
+    <Box pt={{xs:6, md:12}} pb={16}>
       <Typography variant="body2" color="textSecondary" align="center" className={classes.copyright}>
         {'Copyright © '}
         {new Date().getFullYear()}{' '}

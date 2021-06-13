@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Index() {
   const classes = useStyles();
   return (
-    <Layout title="Kuinka voin palvella?" desc="Olen Oskari Järvelin, Web Developer ja tapahtumatekniikan moniosaaja Oulusta. Opiskelen tietojenkäsittelyn Tradenomiksi OAMK:ssa. Kuinka voin palvella?" url="/" img="/hero-index.jpg">
+    <Layout title="Tapahtunee - Oululainen tapahtuma-alan podcast" desc="" url="/" img="/hero-index.jpg">
 
       <Container maxWidth="sm">
         <Box pt={{xs:6, md:12}} pb={4}>

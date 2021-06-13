@@ -1,33 +1,16 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import { makeStyles } from '@material-ui/core/styles';
-import { AppBar, Toolbar, Typography, IconButton, Box, Link as MuiLink, Menu, MenuItem } from '@material-ui/core';
+import { AppBar, Toolbar, IconButton, Link as MuiLink, Fab } from '@material-ui/core';
 import Link from 'next/link';
 
 import ListIcon from '@material-ui/icons/List';
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import YoutubeIcon from '@material-ui/icons/YouTube';
-import MenuIcon from '@material-ui/icons/Menu';
+
+import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-        flexGrow: 1,
-    },
-    title: {
-        flexGrow: 1,
-    },
-    titleLink: {
-        cursor: 'pointer',
-        '&:hover': {
-            textDecoration: 'none',
-        },
-    },
-    mainMenuBox: {
-        flexGrow: 1,
-    },
-    socialMenuBox: {
-        
-    },
+
     mainMenu: {
         display: 'flex',
     },
@@ -41,13 +24,13 @@ const useStyles = makeStyles((theme) => ({
         padding: 20,
         transition: 'background-color .3s ease',
         '&:hover': {
-            backgroundColor: 'rgba(255,255,255,.1)',
+            backgroundColor: 'rgba(248,245,242,.1)',
             textDecoration: 'none'
         }
     },
     currentMenuItem: {
         alignItems: 'center',
-        backgroundColor: 'rgba(255,255,255,.3)',
+        backgroundColor: 'rgba(248,245,242,.3)',
         cursor: 'pointer',
         display: 'flex',
         fontFamily: 'Roboto Condensed',
@@ -89,9 +72,6 @@ const useStyles = makeStyles((theme) => ({
             textDecoration: 'none'
         }
     },
-    mobileMenuItemIcon: {
-        marginRight: theme.spacing(2),
-    },
     iconButton: {
         borderRadius: '50%',
         marginLeft: theme.spacing(0),
@@ -107,20 +87,27 @@ const useStyles = makeStyles((theme) => ({
             textDecoration: 'none'
         }
     },
+    appBar: {
+        top: 'auto',
+        bottom: 0,
+    },
+    grow: {
+        flexGrow: 1,
+    },
+    fabButton: {
+        boxShadow: '0 0 0 4px #f8f5f2',
+        position: 'absolute',
+        zIndex: 1,
+        top: -30,
+        left: 0,
+        right: 0,
+        margin: '0 auto',
+    },
 }));
 
 export default function MenuAppBar() {
     const classes = useStyles();
     const router = useRouter();
-    const [anchorEl, setAnchorEl] = React.useState(null);
-
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
 
     const nav = {
         "navItems": [{
@@ -132,62 +119,30 @@ export default function MenuAppBar() {
     };
 
     return (
-        <AppBar position="fixed" className={classes.root}>
+        <AppBar position="fixed" color="primary" className={classes.appBar}>
             <Toolbar>
 
-                <Typography variant="h5" className={classes.title}>
-                    <Link href="/" passHref>
-                        <MuiLink color="inherit" href="/" className={classes.titleLink}>
-                            Tapahtunee-podcast
-                        </MuiLink>
-                    </Link>
-                </Typography>
+                {nav.navItems.map((navItem) => { 
+                    const Icon = navItem.icon;
+                    return (
+                        <Link key={navItem.id} href={navItem.url} passHref>
+                            <MuiLink color="inherit" className={(router.pathname === navItem.url ? classes.currentMenuItem : classes.menuItem)} href={navItem.url}>
+                                <Icon className={classes.menuItemIcon} />
+                                {navItem.title}
+                            </MuiLink>
+                        </Link>
+                    )
+                })}
 
-                <Box display={{xs: "none", md: "block"}} className={classes.mainMenuBox}>
-                    <Typography className={classes.mainMenu}>
-                        {nav.navItems.map((navItem) => { 
-                            const Icon = navItem.icon;
-                            return (
-                                <Link key={navItem.id} href={navItem.url} passHref>
-                                    <MuiLink color="inherit" className={(router.pathname === navItem.url ? classes.currentMenuItem : classes.menuItem)} href={navItem.url}>
-                                        <Icon className={classes.menuItemIcon} />
-                                        {navItem.title}
-                                    </MuiLink>
-                                </Link>
-                            )
-                        })}
-                    </Typography>
-                </Box>
+                <Fab color="secondary" aria-label="Kuuntele" className={classes.fabButton} >
+                    <PlayArrowIcon fontSize="large" />
+                </Fab>
 
-                <Box className={classes.socialMenuBox}>
-                    <IconButton edge="start" color="inherit" className={classes.iconButton} href="https://www.linkedin.com/in/oskarijarvelin/" target="_blank" rel="noopener" title="Oskari LinkedInissä">
-                        <LinkedInIcon />
-                    </IconButton>
-                    <IconButton edge="start" color="inherit" className={classes.iconButton} href="https://github.com/oskarijarvelin" target="_blank" rel="noopener" title="Oskari GitHubissa">
-                        <YoutubeIcon />
-                    </IconButton>
-                </Box>
+                <div className={classes.grow} />
 
-                <Box display={{xs: "block", md: "none"}}>
-                    <IconButton edge="start" color="inherit" className={classes.menuIcon} aria-label="Avaa päävalikko" aria-controls="menu" aria-haspopup="true" variant="contained" color="inherit" onClick={handleClick} >
-                        <MenuIcon />
-                    </IconButton>
-                    <Menu id="menu" anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose} MenuListProps={{ disablePadding: true }}>
-                        {nav.navItems.map((navItem) => { 
-                            const Icon = navItem.icon;
-                            return (
-                                <MenuItem key={navItem.id} onClick={handleClose} className={classes.mobileMenuItem}>
-                                    <Link href={navItem.url} passHref>
-                                        <MuiLink color="inherit" className={(router.pathname === navItem.url ? classes.currentMobileMenuLink : classes.mobileMenuLink)}>
-                                            <Icon className={classes.mobileMenuItemIcon} />
-                                            {navItem.title}
-                                        </MuiLink>
-                                    </Link>
-                                </MenuItem>
-                            )
-                        })}
-                    </Menu>
-                </Box>
+                <IconButton edge="end" color="inherit" className={classes.iconButton} href="#" target="_blank" rel="noopener" title="#">
+                    <YoutubeIcon />
+                </IconButton>
 
             </Toolbar>
         </AppBar>
