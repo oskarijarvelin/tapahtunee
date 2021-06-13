@@ -110,6 +110,16 @@ export default function MenuAppBar() {
                     </MuiLink>
                 </Link>
 
+                <IconButton color="inherit" className={classes.iconButton} href="#" target="_blank" rel="noopener" title="#">
+                    <YoutubeIcon />
+                </IconButton>
+
+                <Fab color="secondary" aria-label="Kuuntele" className={classes.fabButton} >
+                    <PlayArrowIcon fontSize="large" />
+                </Fab>
+
+                <div className={classes.grow} />
+
                 {nav.navItems.map((navItem) => { 
                     const Icon = navItem.icon;
                     return (
@@ -121,16 +131,6 @@ export default function MenuAppBar() {
                         </Link>
                     )
                 })}
-
-                <Fab color="secondary" aria-label="Kuuntele" className={classes.fabButton} >
-                    <PlayArrowIcon fontSize="large" />
-                </Fab>
-
-                <div className={classes.grow} />
-
-                <IconButton color="inherit" className={classes.iconButton} href="#" target="_blank" rel="noopener" title="#">
-                    <YoutubeIcon />
-                </IconButton>
 
             </Toolbar>
         </AppBar>
