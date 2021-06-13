@@ -26,7 +26,7 @@ export default function Index() {
     <Layout title="Tapahtunee - Oululainen tapahtuma-alan podcast" desc="" url="/" img="/hero-index.jpg">
 
       <Container maxWidth="sm">
-        <Box pt={{xs:6, md:12}} pb={4}>
+        <Box pt={{xs:4, md:12}} pb={4}>
           <Typography variant="h3" component="h1">
             Tapahtunee
           </Typography>

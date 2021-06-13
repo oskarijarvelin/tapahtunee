@@ -37,7 +37,7 @@ export default function Jakso({ jakso }) {
           <Container maxWidth="sm">
             <Box pt={2} pb={4}>
               <Typography variant="h3" component="h1">
-                {jakso.SeoNimi}
+                {jakso.nimi}
               </Typography>
             </Box>
 

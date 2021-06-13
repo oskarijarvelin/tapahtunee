@@ -8,7 +8,7 @@ export default function Layout({title, desc, url, img, children}) {
         <>
             <Head title={title} desc={desc} url={url} img={img} />
 
-            {children}
+            {children}   
 
             <AppBar />
 

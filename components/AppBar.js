@@ -44,37 +44,10 @@ const useStyles = makeStyles((theme) => ({
     menuItemIcon: {
         marginRight: theme.spacing(1),
     },
-    mobileMenuItem: {
-        padding: 0,
-    },
-    mobileMenuLink: {
-        alignItems: 'center',
-        display: 'flex',
-        fontFamily: 'Roboto Condensed',
-        justifyContent: 'flex-start',
-        padding: '16px 24px 16px 16px!important;',
-        transition: 'background-color .3s ease',
-        width: '100%',
-        '&:hover': {
-            backgroundColor: 'rgba(0,0,0,.02)',
-            textDecoration: 'none'
-        }
-    },
-    currentMobileMenuLink: {
-        alignItems: 'center',
-        backgroundColor: 'rgba(0,0,0,.12)',
-        display: 'flex',
-        fontFamily: 'Roboto Condensed',
-        justifyContent: 'flex-start',
-        padding: '16px 24px 16px 16px!important;',
-        width: '100%',
-        '&:hover': {
-            textDecoration: 'none'
-        }
-    },
     iconButton: {
         borderRadius: '50%',
-        marginLeft: theme.spacing(0),
+        margin: 6,
+        padding: 14,
         '&:hover': {
             backgroundColor: 'rgba(255,255,255,.12)',
             textDecoration: 'none'
@@ -90,6 +63,12 @@ const useStyles = makeStyles((theme) => ({
     appBar: {
         top: 'auto',
         bottom: 0,
+    },
+    toolbar: {
+        margin: '0 auto',
+        maxWidth: 640,
+        padding: 0,
+        width: '100%',
     },
     grow: {
         flexGrow: 1,
@@ -120,7 +99,7 @@ export default function MenuAppBar() {
 
     return (
         <AppBar position="fixed" color="primary" className={classes.appBar}>
-            <Toolbar>
+            <Toolbar className={classes.toolbar}>
 
                 {nav.navItems.map((navItem) => { 
                     const Icon = navItem.icon;
@@ -140,7 +119,7 @@ export default function MenuAppBar() {
 
                 <div className={classes.grow} />
 
-                <IconButton edge="end" color="inherit" className={classes.iconButton} href="#" target="_blank" rel="noopener" title="#">
+                <IconButton color="inherit" className={classes.iconButton} href="#" target="_blank" rel="noopener" title="#">
                     <YoutubeIcon />
                 </IconButton>
 

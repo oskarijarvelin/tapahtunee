@@ -54,9 +54,18 @@ h1, h2, h3, h4, h5, h6, .oskari {
     letter-spacing: 1 !important;
 }
 
+html {
+    overflow: hidden;
+}
+
 body {
     font-family: 'Roboto';
     font-weight: 400;
+}
+
+#__next {
+    max-height: 100vh;
+    overflow-y: auto;
 }
 
 @media (min-width: 960px) {
