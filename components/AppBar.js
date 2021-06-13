@@ -4,9 +4,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, IconButton, Link as MuiLink, Fab } from '@material-ui/core';
 import Link from 'next/link';
 
+import HomeIcon from '@material-ui/icons/Home';
 import ListIcon from '@material-ui/icons/List';
 import YoutubeIcon from '@material-ui/icons/YouTube';
-
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 
 const useStyles = makeStyles((theme) => ({
@@ -52,6 +52,9 @@ const useStyles = makeStyles((theme) => ({
             backgroundColor: 'rgba(255,255,255,.12)',
             textDecoration: 'none'
         }
+    },
+    homeIcon: {
+        margin: '2px 0',
     },
     menuIcon: {
         marginLeft: theme.spacing(2),
@@ -100,6 +103,12 @@ export default function MenuAppBar() {
     return (
         <AppBar position="fixed" color="primary" className={classes.appBar}>
             <Toolbar className={classes.toolbar}>
+
+                <Link href="/" passHref>
+                    <MuiLink color="inherit" className={classes.menuItem} href="/">
+                        <HomeIcon className={classes.homeIcon} />
+                    </MuiLink>
+                </Link>
 
                 {nav.navItems.map((navItem) => { 
                     const Icon = navItem.icon;

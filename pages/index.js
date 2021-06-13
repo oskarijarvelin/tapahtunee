@@ -34,13 +34,13 @@ export default function Index() {
 
         <Box pb={4}>
           <Typography variant="body2">
-            <i className={classes.potentiaali}>Tapahtunee</i> tarkoitti aiemmin tapahtua-verbin aktiivin potentiaalin preesensin yksikön 3. persoonan muotoa, joka ilmaisee viestijän pitävän käsittelemäänsä asiaa mahdollisena tai todennäköisenä mutta ei varmana.
+            <i className={classes.potentiaali}>Tapahtunee</i> tarkoitti aiemmin tapahtua-verbin aktiivin potentiaalin preesensin yksikön 3. persoonan muotoa, joka ilmaisee viestijän pitävän käsittelemäänsä asiaa mahdollisena tai todennäköisenä, mutta ei varmana.
           </Typography>
         </Box>
 
         <Box pb={4}>
           <Typography variant="body2">
-            Nyt <i className={classes.potentiaali}>Tapahtunee</i> tarkoittaa myös Oululaista tapahtuma-alan podcastia korona-ajan todellisuudesta, jossa tapahtumista voidan puhua vain mahdollisina tai todennäköisinä mutta ei varmoina.
+            Nyt <i className={classes.potentiaali}>Tapahtunee</i> tarkoittaa myös Oululaista tapahtuma-alan podcastia korona-ajan todellisuudesta, jossa tapahtumista voidan puhua vain mahdollisina tai todennäköisinä, mutta ei varmoina.
           </Typography>
         </Box>
 
