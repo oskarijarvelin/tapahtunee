@@ -16,7 +16,8 @@ const useStyles = makeStyles((theme) => ({
     textTransform: 'none'
   },
   potentiaali: {
-    borderBottom: '1px dashed #999'
+    borderBottom: '1px dashed #999',
+    cursor: 'help'
   }
 }));
   
@@ -34,31 +35,49 @@ export default function Index() {
 
         <Box pb={4}>
           <Typography variant="body2">
-            <i className={classes.potentiaali}>Tapahtunee</i> tarkoitti aiemmin tapahtua-verbin aktiivin potentiaalin preesensin yksikön 3. persoonan muotoa, joka ilmaisee viestijän pitävän käsittelemäänsä asiaa mahdollisena tai todennäköisenä, mutta ei varmana.
+            <i className={classes.potentiaali}>Tapahtunee</i> tarkoittaa tapahtua-verbin nykykielessä harvinaista modusta: <i>potentiaalia</i> eli mahtotapaa. Potentiaali ilmaisee viestijän pitävän käsittelemäänsä asiaa mahdollisena tai todennäköisenä, mutta ei varmana.
           </Typography>
         </Box>
 
         <Box pb={4}>
           <Typography variant="body2">
-            Nyt <i className={classes.potentiaali}>Tapahtunee</i> tarkoittaa myös Oululaista tapahtuma-alan podcastia korona-ajan todellisuudesta, jossa tapahtumista voidan puhua vain mahdollisina tai todennäköisinä, mutta ei varmoina.
+            Nyt <i className={classes.potentiaali}>Tapahtunee</i> on myös laajasti tapahtuma-alaa käsittelevä Oululainen podcast koronapandemian keskeltä, missä tapahtumista voidaan puhua vain mahdollisina tai todennäköisinä, mutta ei varmoina.
           </Typography>
         </Box>
 
         <Box pb={4}>
           <Typography variant="body2">
-            Podcast ei <i className={classes.potentiaali}>ottane</i> kantaa poliittisiin päätöksiin, joiden takia koko tapahtuma-ala on syvässä ahdingossa. Podcast haluaa antaa äänen tapahtuma-alan toimijoille, kertoa heidän osaamisestaan ja tulevaisuuden suunnitelmistaan.
+            Podcast <i className={classes.potentiaali}>antanee</i> äänen tapahtumien tekijöille sekä heidän osaamiselleen. Podcastin vieraina <i className={classes.potentiaali}>kuultaneen</i> yksittäisiä Oululaisia tai Oulusta lähtöisin olevia tapahtuma-alan toimijoita koko toimialan laajuudelta.
           </Typography>
         </Box>
 
         <Box pb={4}>
           <Typography variant="body2">
-            Podcastin ensimmäinen tuotantokausi <i className={classes.potentiaali}>kuultaneen</i> syksyllä 2021. Pilottijakso <i className={classes.potentiaali}>julkaistaneen</i> podcast-alustoilla perjantaina 3.9.2021. Uutta jaksoa <i className={classes.potentiaali}>ilmestynee</i> aina kahden viikon välein jouluun asti.
+            Jokaisessa jaksossa <i className={classes.potentiaali}>selvitettäneen</i> jakson vierailta mitä he tekivät ennen koronaa, miten pandemia rajoituksineen on vaikuttanut juuri heidän toimintaansa sekä ennen kaikkea sitä millä keinoin he aikovat selviytyä pandemian yli kohti Euroopan kulttuuripääkaupunkivuotta 2026.
+          </Typography>
+        </Box>
+
+        <Box pb={4}>
+          <Typography variant="body2">
+            Podcastissa <i className={classes.potentiaali}>osoitettaneen</i> ettei tapahtuma-ala jää tuleen makaamaan vaan etsii yhdessä selviytymiskeinoja, antaa vertaistukea ja inspiroi uuden liiketoiminnan rakentamisessa - pohjoisten tapahtumien tekijöiltä pohjoisten tapahtumien tekijöille. 
+          </Typography>
+        </Box>
+
+        <Box pb={4}>
+          <Typography variant="h4" component="h2">
+            Tuotantokausi 1 saapuu syksyllä 2021
+          </Typography>
+        </Box>
+
+        <Box pb={4}>
+          <Typography variant="body2">
+            Pilottijakso <i className={classes.potentiaali}>julkaistaneen</i> podcast-alustoilla perjantaina 3.9.2021. Uutta jaksoa <i className={classes.potentiaali}>ilmestynee</i> aina kahden viikon välein jouluun asti.
           </Typography>
         </Box>
 
         <Box pb={6}>
           <Typography variant="body2">
-            Podcastin vieraina <i className={classes.potentiaali}>kuultaneen</i> Oululaisia tai Oulusta lähtöisin olevia tapahtuma-alan tekijöitä freelancereista artisteihin, tapahtumajärjestäjistä ohjelmatoimistoihin ja tapahtumapaikkojen omistajista tapahtuma-alan opiskelijoihin.
+            Ensimmäisellä tuotantokaudella podcastin vieraina <i className={classes.potentiaali}>kuultaneen</i> Oululaisia tai Oulusta lähtöisin olevia freelancereita, artisteja, tapahtumajärjestäjiä, ohjelmatoimistoja sekä alan opiskelijoita. Listaa täydennetään vieraiden varmistuttua kesän aikana.
           </Typography>
         </Box>
       </Container>
