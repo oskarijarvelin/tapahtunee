@@ -27,23 +27,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function createData(id, nimi, aika, type) {
-  return { id, nimi, aika, type};
-}
-
-const rows = [
-  createData('', 'Tuotantokausi 1', '', 'th'),
-  createData('1.1', 'Pilottijakso', '03.09.2021', 'td'),
-  createData('1.2', 'TBA (#2)', '10.09.2021', 'td'),
-  createData('1.3', 'TBA (#3)', '24.09.2021', 'td'),
-  createData('1.4', 'TBA (#4)', '08.10.2021', 'td'),
-  createData('1.5', 'TBA (#5)', '22.10.2021', 'td'),
-  createData('1.6', 'TBA (#6)', '05.11.2021', 'td'),
-  createData('1.7', 'TBA (#7)', '19.11.2021', 'td'),
-  createData('1.8', 'TBA (#8)', '03.12.2021', 'td'),
-  createData('1.9', 'Jouluspesiaali', '17.12.2021', 'td'),
-];
-
 export default function Jaksot({ jaksot }) {
   const classes = useStyles();
   return (
